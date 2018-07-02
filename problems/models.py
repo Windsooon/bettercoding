@@ -23,4 +23,4 @@ class Problem(models.Model):
         return self.name
 
     class Meta:
-        ordering = ('created_time',)
+        ordering = ('create_time',)

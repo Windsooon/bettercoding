@@ -16,6 +16,4 @@ class Resources(models.Model):
         return self.name
 
     class Meta:
-        ordering = ('created_time',)
-
-# Create your models here.
+        ordering = ('create_time',)

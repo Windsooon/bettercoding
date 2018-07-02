@@ -19,4 +19,4 @@ class Category(models.Model):
         return self.language
 
     class Meta:
-        ordering = ('created_time',)
+        ordering = ('create_time',)
