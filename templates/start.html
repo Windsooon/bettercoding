@@ -15,11 +15,11 @@
               <a v-on:click="second" class="button is-primary">Start Test</a>
             </span>
           </transition> <!-- end transition -->
-          <skills-item>
+          <skills-item
             v-for="skill in skills"
             v-bind:key="skill.id"
             v-bind:name="skill.name"
-          </skills-item>
+           ></skills-item>
         </div> <!-- 4-5 -->
       </div> <!-- columns -->
     </div> <!-- end container -->
