@@ -1,5 +1,5 @@
 Vue.component('skills-item', {
-  props: ['skill'],
+  props: ['name'],
   template: `
     <div class="column skills-div">
       <p>{{ name }}</p>
