@@ -5,15 +5,15 @@
       <div class="columns">
         <div class="column is-five-fifths center" id="coding-title">
           <h1 class="title">
-            Coding is more than algorithms.
+            Choose your favourite topic.
           </h1>
-          <span>
-            <p class="subtitle">
-              Ready to test your<strong> Coding Skills</strong>?
-            </p>
-            <a href="/english/" class="button is-link">English</a>
-            <a href="/chinese/" class="button is-link">中文</a>
-          </span>
+          <div class="columns is-multiline">
+            {% for topic in categories %}
+            <div class="column is-4">
+              <a href="./{{ topic }}/" class="button is-link">{{ topic }}</a>
+            </div>
+            {% endfor %}
+          </div>
         </div> <!-- 4-5 -->
       </div> <!-- columns -->
     </div> <!-- end container -->
