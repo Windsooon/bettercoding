@@ -19,5 +19,9 @@ from . import views
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    re_path(r'^', views.index),
+    re_path('english/$', views.english),
+    re_path('english/(?P<cate>[a-zA-Z]+)/$', views.english_cate),
+    re_path('chinese/$', views.chinese),
+    re_path('chinese/(?P<cate>[a-zA-Z]+)/$', views.chinese_cate),
+    re_path(r'^$', views.index),
 ]
