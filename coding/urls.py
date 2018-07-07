@@ -19,9 +19,8 @@ from . import views
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    re_path('english/$', views.english),
-    re_path('english/(?P<cate>[a-zA-Z]+)/$', views.english_cate),
-    re_path('chinese/$', views.chinese),
-    re_path('chinese/(?P<cate>[a-zA-Z]+)/$', views.chinese_cate),
+    re_path('(?P<language>English|Chinese)/(?P<cate>[a-zA-Z]+)/$', views.cate),
+    re_path('(?P<language>English|Chinese)/(?P<cate>[a-zA-Z]+)/(?P<id>[0-9]+)$', views.cate_pro),
+    re_path('^(?P<language>English|Chinese)/$', views.language),
     re_path(r'^$', views.index),
 ]
