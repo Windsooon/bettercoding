@@ -1,0 +1,21 @@
+{% extends 'base.html' %}
+  {% block content %}
+  <section class="section">
+    <div class="container">
+      <div class="columns">
+        <div class="column is-five-fifths center" id="coding-title">
+          <h1 class="title">
+            {{ title }}
+          </h1>
+          <div class="columns is-multiline">
+            {% for topic in categories %}
+            <div class="column is-4">
+              <a href="./{{ topic }}/" class="button is-link">{{ topic }}</a>
+            </div>
+            {% endfor %}
+          </div>
+        </div> <!-- 4-5 -->
+      </div> <!-- columns -->
+    </div> <!-- end container -->
+  </section>
+  {% endblock %}
