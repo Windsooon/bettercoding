@@ -16,9 +16,8 @@ class Level(models.Model):
         Courses,
         on_delete=models.CASCADE,
         related_name='level')
-    level = models.CharField(
-        max_length=2,
-        choices=LEVEL_CHOICES)
+    level = models.IntegerField(
+        choices=LEVEL_CHOICES, default=0)
     create_time = models.DateTimeField(auto_now_add=True)
     update_time = models.DateTimeField(auto_now=True)
 
