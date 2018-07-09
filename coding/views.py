@@ -1,4 +1,5 @@
 from django.shortcuts import render
+from problems.models import Problem
 
 
 def get_order(language):
@@ -54,4 +55,11 @@ def cate(request, language, cate):
 
 
 def cate_pro(request, language, cate, id):
-    pass
+    problem = Problem.objects.filter(
+        problem_id=id, category__language=cate.lower())
+    if problem:
+        context = {
+            'problem': problem,
+        }
+        return render(request, 'problem.html', context)
+    return render(request, '404.html')

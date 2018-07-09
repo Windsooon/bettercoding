@@ -20,7 +20,7 @@ from . import views
 urlpatterns = [
     path('admin/', admin.site.urls),
     re_path('(?P<language>English|Chinese)/(?P<cate>[a-zA-Z]+)/$', views.cate),
-    re_path('(?P<language>English|Chinese)/(?P<cate>[a-zA-Z]+)/(?P<id>[0-9]+)$', views.cate_pro),
+    re_path('(?P<language>English|Chinese)/(?P<cate>[a-zA-Z]+)/(?P<id>[0-9]+)/$', views.cate_pro),
     re_path('^(?P<language>English|Chinese)/$', views.language),
     re_path(r'^$', views.index),
 ]
