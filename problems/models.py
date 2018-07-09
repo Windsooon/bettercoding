@@ -3,6 +3,7 @@ from categories.models import Category
 
 
 class Problem(models.Model):
+    problem_id = models.IntegerField(default=1)
     LANGUAGE_CHOICE = (
         (0, 'English'),
         (1, 'Chinese'),
