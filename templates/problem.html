@@ -1,4 +1,5 @@
 {% extends 'base.html' %}
+{% load staticfiles %}
   {% block content %}
   <section class="section">
     <div class="container">
@@ -8,8 +9,17 @@
             <p>{{ problem.des }}</p>
           </h1>
           <div class="code-wrapper">
-            {{ code_in_html|safe }}
+          {{ code_in_html|safe }}
           </div> <!-- end code-wrapper -->
+          <div class="columns is-multiline">
+          {% for answer in answer_lst %}
+          <div class="column is-half" id="answer-{{ forloop.counter }}">
+            <a class="button is-fullwidth" ref="answer_btn" v-on:click="check" val="{{ answer.0 }}" 
+              v-bind:class="{'is-success': correct, 'is-info': !correct }">{{ answer.1 }}
+            </a>
+          </div>
+          {% endfor %}
+          </div>
         </div> <!-- column is-five-fifths center -->
       </div> <!-- columns -->
     </div> <!-- end container -->
