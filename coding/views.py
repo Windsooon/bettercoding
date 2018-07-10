@@ -1,3 +1,4 @@
+import random
 from django.shortcuts import render
 from pygments import highlight
 from pygments.lexers import get_lexer_by_name
@@ -62,13 +63,19 @@ def cate_pro(request, language, cate, id):
         problem_id=id, category__language=cate.lower())
     if problem:
         problem = problem.first()
+        # convert code to html
         code_in_html = highlight(
             problem.code,
             get_lexer_by_name(problem.category.language),
             HtmlFormatter())
+        answer_lst = [
+            (1, problem.true_answer), (0, problem.wrong_answer1),
+            (0, problem.wrong_answer2), (0, problem.wrong_answer3)]
+        random.shuffle(answer_lst)
         context = {
             'problem': problem,
-            'code_in_html': code_in_html
+            'code_in_html': code_in_html,
+            'answer_lst': answer_lst
         }
         return render(request, 'problem.html', context)
     return render(request, '404.html')
