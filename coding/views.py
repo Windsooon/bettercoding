@@ -59,6 +59,7 @@ def cate(request, language, cate):
 
 
 def cate_pro(request, language, cate, id):
+    resource_kw = ['References', '参考']
     problem = Problem.objects.filter(
         problem_id=id, category__language=cate.lower())
     if problem:
@@ -75,7 +76,8 @@ def cate_pro(request, language, cate, id):
         context = {
             'problem': problem,
             'code_in_html': code_in_html,
-            'answer_lst': answer_lst
+            'answer_lst': answer_lst,
+            'resource_kw': resource_kw[get_order(language)]
         }
         return render(request, 'problem.html', context)
     return render(request, '404.html')

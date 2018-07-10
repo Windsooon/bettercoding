@@ -1,6 +1,7 @@
 html {
     font-size: 30px !important;
 }
+
 .center {
     text-align: center;
 }
@@ -16,4 +17,8 @@ html {
 .code-wrapper {
     text-align: left;
     margin-bottom: 40px;
+}
+
+#resource-div, #resource-h1{
+    text-align: left;
 }

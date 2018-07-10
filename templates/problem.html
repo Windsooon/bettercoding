@@ -12,14 +12,24 @@
           {{ code_in_html|safe }}
           </div> <!-- end code-wrapper -->
           <div class="columns is-multiline">
-          {% for answer in answer_lst %}
-          <div class="column is-half" id="answer-{{ forloop.counter }}">
-            <a class="button is-fullwidth" ref="answer_btn" v-on:click="check" val="{{ answer.0 }}" 
-              v-bind:class="{'is-success': correct, 'is-info': !correct }">{{ answer.1 }}
-            </a>
-          </div>
-          {% endfor %}
-          </div>
+            {% for answer in answer_lst %}
+            <div class="column is-half" id="answer-{{ forloop.counter }}">
+              <a class="button is-fullwidth" ref="answer_btn" v-on:click="check" val="{{ answer.0 }}" 
+                v-bind:class="{'is-success': correct, 'is-info': !correct }">{{ answer.1 }}
+              </a>
+            </div> <!-- end answer_lst -->
+            {% endfor %}
+          </div> <!-- end columns -->
+          <div id="resource-wrapper-div">
+            <div v-if="seen" id="resource-div">
+              <h1 id="resource-h1">{{ resource_kw }}</h1>
+              <ul>
+                {% for resource in problem.resources.all %}
+                <li><a href="{{ resource.url }}">{{ resource.name }}</a></li>
+                {% endfor %}
+              </ul>
+            </div> <!-- end resource-div -->
+          </div> <!-- end resource-wrapper-div -->
         </div> <!-- column is-five-fifths center -->
       </div> <!-- columns -->
     </div> <!-- end container -->
