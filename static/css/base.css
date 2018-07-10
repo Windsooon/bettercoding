@@ -12,3 +12,7 @@ html {
 .fade-enter {
   opacity: 0;
 }
+
+.code-wrapper {
+    text-align: left;
+}

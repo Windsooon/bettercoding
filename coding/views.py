@@ -1,4 +1,7 @@
 from django.shortcuts import render
+from pygments import highlight
+from pygments.lexers import get_lexer_by_name
+from pygments.formatters import HtmlFormatter
 from problems.models import Problem
 
 
@@ -58,8 +61,14 @@ def cate_pro(request, language, cate, id):
     problem = Problem.objects.filter(
         problem_id=id, category__language=cate.lower())
     if problem:
+        problem = problem.first()
+        code_in_html = highlight(
+            problem.code,
+            get_lexer_by_name(problem.category.language),
+            HtmlFormatter())
         context = {
             'problem': problem,
+            'code_in_html': code_in_html
         }
         return render(request, 'problem.html', context)
     return render(request, '404.html')
